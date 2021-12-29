@@ -19,7 +19,7 @@ class DataImporter
     File.foreach(path_to_file) do |line|
       first_name, last_name, email, vehicle_type, vehicle_name, raw_vehicle_length = line.split(delimiter)
       customer = Customer.create!({first_name: first_name, last_name: last_name, email: email})
-      Vehicle.create!({vehicle_type: vehicle_type, name: vehicle_name, length: normalize_vehicle_length(raw_vehicle_length), Customer:customer})
+      Vehicle.create!({vehicle_type: vehicle_type, name: vehicle_name, length: normalize_vehicle_length(raw_vehicle_length), customer:customer})
     end
   end
   
