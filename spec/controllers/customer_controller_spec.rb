@@ -28,11 +28,11 @@ describe CustomersController do
       last_name: "last",
       email: "valid@email.com"
       })
-      Vehicle.create!({
-        vehicle_type: "tugboat", 
-        name: "Scuffy", 
-        length: 2, 
-        customer:customer
-        })
-    end
+    Vehicle.create!({
+      vehicle_type: "tugboat", 
+      name: "Scuffy", 
+      length: 2, 
+      customer:customer
+      })
   end
+end

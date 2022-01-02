@@ -15,5 +15,11 @@ module DockwaProject
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Loads data from the given text files
+    config.after_initialize do
+      Rails.application.load_tasks
+      Rake::Task['import_data:import'].invoke
+    end
   end
 end
