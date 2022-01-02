@@ -17,9 +17,11 @@ module DockwaProject
     # the framework and any gems in your application.
 
     # Loads data from the given text files
-    config.after_initialize do
-      Rails.application.load_tasks
-      Rake::Task['import_data:import'].invoke
+    if Rails.env.development?
+      config.after_initialize do
+        Rails.application.load_tasks
+        Rake::Task['import_data:import'].invoke
+      end
     end
   end
 end
