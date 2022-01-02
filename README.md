@@ -45,7 +45,8 @@ There's one view, Home, which does nothing but launch the React app.
 #### Controllers
 The important one is the customers controller, which responds to GET with json containing an array of customers including their vehicles. Although the test files have one vehicle per customer, and the table expects this, the back end will accomodate any number of vehicles per customer. If we wanted to display more vehicles, we could modify the CustomersTable component.
 
-#### Data import: It's reasonable to assume that any new data sets would be in the same format as the test files, so data import is handled in a helper object in /impoters/data_importer.rb. This could be modified to import txt files with different data in the future without affecting existing functionality. For demonstration purposes this is automatically run in a rake task after initialization, though in a production app it would probably be better to have a scheduled import. 
+#### Data import
+It's reasonable to assume that any new data sets would be in the same format as the test files, so data import is handled in a helper object in /impoters/data_importer.rb. This could be modified to import txt files with different data in the future without affecting existing functionality. For demonstration purposes this is automatically run in a rake task after initialization, though in a production app it would probably be better to have a scheduled import. 
 NOTE: to model a realistic app, the importer looks in the /tmp directory under the assumption that data import files would be temporarily staged there after being retreived from an external source and not checked into source control. To simplify setup, /tmp was removed from .gitignore and the two data files checked in. This would not be good practice in a non-demonstration environment. 
 
 #### Tests: All these have basic rspec tests included
