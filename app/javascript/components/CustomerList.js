@@ -9,7 +9,7 @@ function CustomerList() {
   // Simple api call for the customer data. This should be fleshed out into a generic loading component 
   // that would wrap this function and display a loading screen until the promise is fullfilled
   useEffect(() => {
-    fetch("http://localhost:3000/api/customers")
+    fetch("/api/customers")
     .then(response => {
       if (response.ok) {return response.json()}
       throw new Error("Invalid Response");
