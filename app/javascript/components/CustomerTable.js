@@ -35,7 +35,7 @@ function CustomerTable(props) {
           <th>Customer Email</th>
           <th>Vehicle Type</th>
           <th>Vehicle Name</th>
-          <th onClick={sortColumn(false)}>Vehicle Length</th>
+          <th onClick={sortColumn(false)}>Length (ft)</th>
         </tr>
       </thead>
       <tbody>

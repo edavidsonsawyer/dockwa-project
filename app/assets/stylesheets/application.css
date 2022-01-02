@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .styled-table {
+ .table {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
