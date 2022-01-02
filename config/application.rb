@@ -16,11 +16,14 @@ module DockwaProject
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # Loads data from the given text files
-    if Rails.env.development?
-      config.after_initialize do
-        Rails.application.load_tasks
-        Rake::Task['import_data:import'].invoke
+    # Loads data from the given text files. Only when the server boots or it will cause problems
+    # running migrations
+    if defined?(Rails::Server)
+      if Rails.env.development?
+        config.after_initialize do
+          Rails.application.load_tasks
+          Rake::Task['import_data:import'].invoke
+        end
       end
     end
   end
