@@ -5,9 +5,12 @@ function CustomerTable(props) {
   let [sortByName, setSortByName] = useState(true);
   let [sortDesc, setSortDesc] = useState(true);
 
-  function sortColumn(isNameColumn) {
+  // For more than two columns this callback would just set they type of sort (alpha, number, etc.), based on
+  // the column header property. But with only two sorts we can be more compact and code interviews are supposed to 
+  // have closures somewhere
+  function setSort(isNameColumn) {
     return () => {
-      if (isNameColumn === sortByName) setSortDesc(!sortDesc)
+      if (isNameColumn === sortByName) setSortDesc(!sortDesc) // default to desc sort when column is changed
       setSortByName(isNameColumn);
     }
   }
@@ -31,11 +34,11 @@ function CustomerTable(props) {
     <table>
       <thead>
         <tr>
-          <th onClick={sortColumn(true)}>Customer Name</th>
+          <th onClick={setSort(true)}>Customer Name</th>
           <th>Customer Email</th>
           <th>Vehicle Type</th>
           <th>Vehicle Name</th>
-          <th onClick={sortColumn(false)}>Length (ft)</th>
+          <th onClick={setSort(false)}>Length (ft)</th>
         </tr>
       </thead>
       <tbody>
